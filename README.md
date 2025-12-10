@@ -22,7 +22,7 @@ pip install -r requirements.txt
 Running experiments based our code could be quite easy, so below we use `HalfCheetah-v3` task as an example. 
 
 ```
-python main.py --env_name HalfCheetah-v3--weighted --aug
+python main.py --env_name HalfCheetah-v3 --weighted --aug
 ```
 
 ## Citation
@@ -42,3 +42,26 @@ url={https://arxiv.org/abs/2405.16173}
 ## Acknowledgement
 
 The code of QVPO is based on the implementation of [DIPO](https://github.com/BellmanTimeHut/DIPO).
+
+
+## Additional Notes on Code Replication
+1. Better set python version to 3.10
+2. Failed to build 'gym'? Solution: 
+```
+python3 -m pip install "pip<24" "setuptools<60" "wheel<0.38"
+python3 -m pip install gym==0.21.0 --no-build-isolation
+python3 -m pip install -r requirements.txt
+```
+3. Error related to `pygame 2.1.0`? Solution:
+```
+sudo apt update
+sudo apt install python3-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev \
+                 libportmidi-dev libfreetype6-dev libjpeg-dev libpng-dev libsmpeg-dev \
+                 libavformat-dev libswscale-dev libgl1-mesa-dev libglu1-mesa-dev
+```
+4. Failed to build `box2d-py`? Solution:
+```
+sudo apt update && sudo apt install swig
+```
+5. Download Mujoco package and add it to the `$PATH` in `~/.bashrc`
+6. Compiling mujoco-py requires `sudo apt install libglew-dev patchelf`
