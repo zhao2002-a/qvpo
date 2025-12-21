@@ -65,3 +65,9 @@ sudo apt update && sudo apt install swig
 ```
 5. Download Mujoco package and add it to the `$PATH` in `~/.bashrc`
 6. Compiling mujoco-py requires `sudo apt install libglew-dev patchelf`
+
+## Evaluation
+Evaluation a Trained Model (Example): `python evaluate.py --env_name HalfCheetah-v3 --weighted --aug --id 25_12_21_16_30_39_0 --render`
+Required Environment settings: 
+- `export MUJOCO_GL=glfw`
+- `export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so`
