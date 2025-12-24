@@ -246,5 +246,7 @@ class Diffusion(nn.Module):
         return self.p_losses(x, state, t, weights)
 
     def forward(self, state, eval=False, q_func=None, normal=False):
-        return self.sample(state, eval, q_func, normal)
+        #return self.sample(state, eval, q_func, normal)#这里换成sample_n
+        return self.sample_n(state, eval, q_func=q_func, chosen=3, origin=None)
+
 
